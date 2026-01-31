@@ -1,0 +1,35 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+.DS_Store
+
+# Env / secrets
+.env
+.envrc
+.env.*.local
+
+# IDE / editor
+.idea/
+*.swp
+*.swo
+
+# Testing / linting (if you add them later)
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+coverage.xml
+htmlcov/
+
+# Logs
+*.log
+
+# Data
+flashcard_exchange/*

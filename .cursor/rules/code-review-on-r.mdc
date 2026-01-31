@@ -1,0 +1,24 @@
+---
+description: When user runs /r, do a code review of all unstaged changes and check best practices (e.g. DRY)
+alwaysApply: true
+---
+
+# Code Review on /r
+
+When the user runs **/r**, treat it as a request for a **code review of all unstaged changes**.
+
+## Steps
+
+1. **Inspect unstaged changes** — e.g. `git diff`, or the diff the user has in context.
+2. **Review against best practices**, including:
+   - **DRY (Don't Repeat Yourself)** — flag duplicated logic, repeated patterns, or copy-paste that could be a function/constant/shared helper.
+   - Clear naming, single responsibility, appropriate error handling, and project conventions (see other rules).
+3. **Give actionable feedback** — concrete suggestions with file/line or snippet, not vague advice. Prefer "Extract X into a helper in `utils.py`" over "Consider reducing duplication."
+
+## Example response shape
+
+- **Summary** of what changed (1–2 sentences).
+- **Findings** (if any): each as a short heading, what’s wrong, and a suggested fix or code snippet.
+- **LGTM** or **Looks good** if nothing to improve.
+
+Keep the review concise; focus on the highest-impact issues first.
