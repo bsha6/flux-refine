@@ -1,0 +1,26 @@
+---
+description: When user runs /docs, update README.md and CLAUDE.md from staged changes or recent commits
+alwaysApply: true
+---
+
+# Documentation Update on /docs
+
+When the user runs **/docs**, update project documentation to match code changes.
+
+## Scope (in order)
+
+1. **Staged changes** — Use `git diff --staged` (or equivalent) to see what will be committed.
+2. **If nothing staged** — Use recent commits (e.g. last 1–3) to infer what changed.
+
+## Docs to update
+
+- **README.md** — How to run things, commands, env vars, and reusable utilities. Keep it accurate for someone cloning the repo (e.g. TSV vs CSV, `tsv_parsing`, `uv run`).
+- **CLAUDE.md** — High-level goal, run instructions, and TODO list. Align wording with current behavior (e.g. “TSV export” not “CSV export” if code uses TSV). Add or tick TODOs that were done; add new ones only if they clearly belong.
+
+## How to update
+
+- **Add or revise sections** so docs describe current behavior; remove or soften obsolete steps.
+- **Keep tone and structure** — Don’t rewrite everything; change only what the staged/recent changes imply.
+- **CLAUDE.md TODOs** — Mark completed items (e.g. “Create pipeline for writing CSV from Anki” → done or “TSV from Anki” if that’s what exists); avoid inventing new TODOs unless the diff suggests them.
+
+Output a short summary of what you changed in each file and why (tied to the diff/commits).
